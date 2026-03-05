@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FinWell - Your AI-Powered Personal Finance & Wellness Copilot">
+    <title>FinWell — Finance & Wellness Copilot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo" onclick="showDashboard()">
+            <img src="/static/logo.png" alt="FinWell Logo" class="logo-icon">
+            <span>FinWell</span>
+        </div>
+        <div class="nav-pills">
+            <button class="nav-pill active" data-page="dashboard" onclick="showDashboard()">Dashboard</button>
+            <button class="nav-pill" data-page="health" onclick="showChat('health')">Health</button>
+            <button class="nav-pill" data-page="stocks" onclick="showChat('stocks')">Stocks</button>
+            <button class="nav-pill" data-page="crypto" onclick="showChat('crypto')">Crypto</button>
+            <button class="nav-pill sos-btn" onclick="triggerCrisisMode()">🚨 SOS</button>
+        </div>
+    </nav>
+
+    <div class="app-container">
+
+        <!-- ── Dashboard Page ─────────────────────────────────── -->
+        <section id="dashboard" class="page-section active">
+            <div class="dashboard">
+                <div class="hero"
+                    style="display: flex; justify-content: space-between; align-items: center; text-align: left; margin-bottom: 40px;">
+                    <div>
+                        <h1 style="font-size: 2.8rem; margin-bottom: 10px;">Welcome back!</h1>
+                        <p style="margin: 0; max-width: 500px;">Your AI copilot is perfectly synced. Currently
+                            monitoring your health events and financial portfolio.</p>
+                    </div>
+                    <div>
+                        <button class="action-btn" id="connect-broker-btn" onclick="openPortfolioModal()"
+                            style="background: rgba(245, 158, 11, 0.1); border: 1px solid var(--accent-crypto); color: var(--accent-crypto); padding: 14px 28px; border-radius: var(--radius-xl); font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);">
+                            🔗 Connect Broker/Wallet
+                        </button>
+                    </div>
+                </div>
+
+                <div class="agent-cards">
+                    <!-- Health Agent Card -->
+                    <div class="agent-card health" onclick="showChat('health')">
+                        <div class="card-icon">&#x2695;</div>
+                        <div class="card-title">Health Agent</div>
+                        <div class="card-desc">Describe your symptoms and get AI-powered medical guidance with insurance
+                            recommendations.</div>
+                        <ul class="card-features">
+                            <li>Symptom Analysis</li>
+                            <li>Insurance Plans</li>
+                            <li>Emergency Detection</li>
+                        </ul>
+                        <div class="card-arrow">&#x2192;</div>
+                    </div>
+
+                    <!-- Stocks Card -->
+                    <div class="agent-card stocks" onclick="showChat('stocks')">
+                        <div class="card-icon">&#x2197;</div>
+                        <div class="card-title">Stock Analyst</div>
+                        <div class="card-desc">Get personalized equity research, investment memos, and buy/hold/sell
+                            ratings on any stock.</div>
+                        <ul class="card-features">
+                            <li>Equity Research</li>
+                            <li>AI Analysis</li>
+                            <li>Rating System</li>
+                        </ul>
+                        <div class="card-arrow">&#x2192;</div>
+                    </div>
+
+                    <!-- Crypto Card -->
+                    <div class="agent-card crypto" onclick="showChat('crypto')">
+                        <div class="card-icon">&#x26A1;</div>
+                        <div class="card-title">Crypto Tracker</div>
+                        <div class="card-desc">Track live prices, market sentiment, and get outlook analysis for any
+                            cryptocurrency.</div>
+                        <ul class="card-features">
+                            <li>Live Prices</li>
+                            <li>Sentiment Analysis</li>
+                            <li>Market Data</li>
+                        </ul>
+                        <div class="card-arrow">&#x2192;</div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- ═══ HEALTH CHAT ═══ -->
+        <section id="health-page" class="page-section">
+            <div class="chat-page health-chat">
+                <div class="chat-header">
+                    <div class="chat-header-icon"
+                        style="background: rgba(16,185,129,0.15); color: var(--accent-health);">&#x2695;</div>
+                    <div>
+                        <h2>Health Agent</h2>
+                        <div class="status">Online</div>
+                    </div>
+                    <button class="back-btn" onclick="showDashboard()">&#x2190; Dashboard</button>
+                </div>
+                <div class="chat-messages" id="health-messages">
+                    <div class="message bot" style="animation-delay: 0.1s;">
+                        <div class="message-avatar">&#x2695;</div>
+                        <div class="message-bubble">
+                            Hello! I'm your Health Agent. Describe your symptoms and I'll provide analysis and
+                            recommendations.
+                            <div class="quick-actions">
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('health', 'I have a headache and fever')">Headache &
+                                    Fever</button>
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('health', 'I have chest pain')">Chest Pain</button>
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('health', 'I have a cough and sore throat')">Cough</button>
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('health', 'I have stomach pain')">Stomach Pain</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input class="chat-input" id="health-input" type="text" placeholder="Describe your symptoms..."
+                            onkeypress="if(event.key==='Enter')sendMessage('health')">
+                        <button class="send-btn" onclick="sendMessage('health')">&#x27A4;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ STOCKS CHAT ═══ -->
+        <section id="stocks-page" class="page-section">
+            <div class="chat-page stocks-chat">
+                <div class="chat-header">
+                    <div class="chat-header-icon"
+                        style="background: rgba(99,102,241,0.15); color: var(--accent-stocks);">&#x2197;</div>
+                    <div>
+                        <h2>Stock Analyst</h2>
+                        <div class="status">Online</div>
+                    </div>
+                    <button class="back-btn" onclick="showDashboard()">&#x2190; Dashboard</button>
+                </div>
+                <div class="chat-messages" id="stocks-messages">
+                    <div class="message bot" style="animation-delay: 0.1s;">
+                        <div class="message-avatar">&#x2197;</div>
+                        <div class="message-bubble">
+                            Welcome! Enter a stock ticker to get AI-powered analysis and investment ratings.
+                            <div class="quick-actions">
+                                <button class="quick-chip" onclick="sendQuickMessage('stocks', 'AAPL')">AAPL</button>
+                                <button class="quick-chip" onclick="sendQuickMessage('stocks', 'GOOGL')">GOOGL</button>
+                                <button class="quick-chip" onclick="sendQuickMessage('stocks', 'TSLA')">TSLA</button>
+                                <button class="quick-chip" onclick="sendQuickMessage('stocks', 'MSFT')">MSFT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input class="chat-input" id="stocks-input" type="text"
+                            placeholder="Enter a stock ticker (e.g., AAPL)..."
+                            onkeypress="if(event.key==='Enter')sendMessage('stocks')">
+                        <button class="send-btn" onclick="sendMessage('stocks')">&#x27A4;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CRYPTO CHAT ═══ -->
+        <section id="crypto-page" class="page-section">
+            <div class="chat-page crypto-chat">
+                <div class="chat-header">
+                    <div class="chat-header-icon"
+                        style="background: rgba(245,158,11,0.15); color: var(--accent-crypto);">&#x26A1;</div>
+                    <div>
+                        <h2>Crypto Tracker</h2>
+                        <div class="status">Online</div>
+                    </div>
+                    <button class="back-btn" onclick="showDashboard()">&#x2190; Dashboard</button>
+                </div>
+                <div class="chat-messages" id="crypto-messages">
+                    <div class="message bot" style="animation-delay: 0.1s;">
+                        <div class="message-avatar">&#x26A1;</div>
+                        <div class="message-bubble">
+                            Hey! Enter a cryptocurrency name or symbol to get live price, market data, and sentiment
+                            analysis.
+                            <div class="quick-actions">
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('crypto', 'bitcoin')">Bitcoin</button>
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('crypto', 'ethereum')">Ethereum</button>
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('crypto', 'solana')">Solana</button>
+                                <button class="quick-chip"
+                                    onclick="sendQuickMessage('crypto', 'fetch')">Fetch.ai</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input class="chat-input" id="crypto-input" type="text"
+                            placeholder="Enter a crypto (e.g., bitcoin, eth, sol)..."
+                            onkeypress="if(event.key==='Enter')sendMessage('crypto')">
+                        <button class="send-btn" onclick="sendMessage('crypto')">&#x27A4;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ═══ PORTFOLIO CONFIG MODAL ═══ -->
+    <div id="portfolio-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header" style="background: rgba(16, 185, 129, 0.1);">
+                <h2 style="color: var(--accent-crypto); animation: none; font-weight: 700;">🔗 Secure Broker Link</h2>
+                <button class="close-modal" onclick="closePortfolioModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    Link your accounts or manually specify your holdings. This data will be securely monitored by your
+                    AI agents for SOS liquidity.
+                </p>
+
+                <div id="portfolio-inputs">
+                    <!-- Inputs generated dynamically by JS -->
+                </div>
+
+                <button class="action-btn" onclick="addPortfolioRow()"
+                    style="background: transparent; border: 1px dashed var(--border-glass); color: var(--text-muted); width: 100%; margin-top: 10px;">
+                    + Add Asset
+                </button>
+
+                <button class="crisis-execute-btn" style="background: var(--accent-crypto); margin-top: 24px;"
+                    onclick="savePortfolio()">
+                    Save & Authenticate Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CRISIS MODAL ═══ -->
+    <div id="crisis-modal" class="modal-overlay">
+        <div class="modal-content crisis-theme">
+            <div class="modal-header">
+                <h2>🚨 CROSS-AGENT SOS PROTOCOL</h2>
+                <button class="close-modal" onclick="closeCrisisModal()">×</button>
+            </div>
+            <div class="modal-body" id="crisis-body">
+                <div style="text-align: center; padding: 40px;">
+                    <div class="typing-indicator" style="justify-content: center;">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p style="margin-top: 15px; color: #ef4444;">Health Agent requesting emergency funds...</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Stock & Crypto agents analyzing
+                        portfolio...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

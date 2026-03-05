@@ -1,0 +1,12 @@
+INFO:     [AnalyserAgent]: Starting agent with address: agent1qdkulla80gkjdumy6qp867x6u9wwqkrya0r4eks6zs520lqp6r3g200d83u
+INFO:     [AnalyserAgent]: [Analyser] Agent is live!
+INFO:     [AnalyserAgent]: Agent inspector available at https://agentverse.ai/inspect/?uri=http%3A//127.0.0.1%3A8006&address=agent1qdkulla80gkjdumy6qp867x6u9wwqkrya0r4eks6zs520lqp6r3g200d83u
+INFO:     [AnalyserAgent]: Starting server on http://0.0.0.0:8006 (Press CTRL+C to quit)
+INFO:     [uagents.registration]: Registration on Almanac API successful
+WARNING:  [uagents.registration]: I do not have enough funds to register on Almanac contract
+WARNING:  [uagents.registration]: To enable contract registration, send funds to wallet address: fetch1vgfkstfawwnhxaxakukgw25k7xqeukrv38klnc
+WARNING:  [uagents.registration]: To register on testnet Almanac contract, create agent with 'Agent(..., network="testnet")'
+INFO:     [AnalyserAgent]: [Analyser] Analyzing ASI1 response: [Mock ASI Response] Insight based on your query: Based on the following symptoms: Hi, suggest possible causes and recommend next steps or actions the user should take, such as home remedies, consulting a doctor, or emergency care.
+INFO:     [AnalyserAgent]: [Analyser] Sent response to CLI agent
+INFO:     [AnalyserAgent]: [Analyser] Sent response to insurance agent
+INFO:     [AnalyserAgent]: Shutting down server...

@@ -1,0 +1,14 @@
+INFO:     [InsuranceAgent]: Starting agent with address: agent1qvwjtya8ncl5shwr7m8p80jw7l20lplt0ahtx40gzl3vsaeq4jr3kzuhfz4
+INFO:     [InsuranceAgent]: [Insurance] Agent is live!
+INFO:     [InsuranceAgent]: Agent inspector available at https://agentverse.ai/inspect/?uri=http%3A//127.0.0.1%3A8010&address=agent1qvwjtya8ncl5shwr7m8p80jw7l20lplt0ahtx40gzl3vsaeq4jr3kzuhfz4
+INFO:     [InsuranceAgent]: Starting server on http://0.0.0.0:8010 (Press CTRL+C to quit)
+INFO:     [uagents.registration]: Registration on Almanac API successful
+WARNING:  [uagents.registration]: I do not have enough funds to register on Almanac contract
+WARNING:  [uagents.registration]: To enable contract registration, send funds to wallet address: fetch17yc8khg086dgdrjgklve2ks0z57994k5jjfdy0
+WARNING:  [uagents.registration]: To register on testnet Almanac contract, create agent with 'Agent(..., network="testnet")'
+INFO:     [InsuranceAgent]: [Insurance] Analyzed response: [Analyzed] [Mock ASI Response] Insight based on your query: Based on the following symptoms: Hi, suggest possible causes and recommend next steps or actions the user should take, such as home remedies, consulting a doctor, or emergency care.
+INFO:     [InsuranceAgent]: [Insurance] Serious condition detected. Asking about insurance.
+INFO:     [InsuranceAgent]: [Insurance] Received income: Rs.50000
+INFO:     [InsuranceAgent]: [Insurance] Sending 3 insurance options to user.
+INFO:     [InsuranceAgent]: [Insurance] Options sent successfully
+INFO:     [InsuranceAgent]: Shutting down server...

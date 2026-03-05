@@ -1,0 +1,14 @@
+uagents
+uagents-core
+requests
+nltk
+python-dotenv
+aiohttp
+asyncio
+tenacity
+backoff
+pandas
+colorlog
+Crewai
+Pydantic
+beautifulsoup4

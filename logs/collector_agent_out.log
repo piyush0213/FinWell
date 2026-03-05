@@ -1,0 +1,11 @@
+INFO:     [CollectorAgent]: Starting agent with address: agent1qv35ejh6fx6p5smyqzk9ts2qklhkk7gn5470nt0x3s7an3f7jvfxvlf5222
+INFO:     [CollectorAgent]: [Collector] Agent is live!
+INFO:     [CollectorAgent]: Agent inspector available at https://agentverse.ai/inspect/?uri=http%3A//127.0.0.1%3A8005&address=agent1qv35ejh6fx6p5smyqzk9ts2qklhkk7gn5470nt0x3s7an3f7jvfxvlf5222
+INFO:     [CollectorAgent]: Starting server on http://0.0.0.0:8005 (Press CTRL+C to quit)
+INFO:     [uagents.registration]: Registration on Almanac API successful
+WARNING:  [uagents.registration]: I do not have enough funds to register on Almanac contract
+WARNING:  [uagents.registration]: To enable contract registration, send funds to wallet address: fetch1kp2y2c0m68s2tm5ewdlmr44f49w5wvjtwxxkau
+WARNING:  [uagents.registration]: To register on testnet Almanac contract, create agent with 'Agent(..., network="testnet")'
+INFO:     [CollectorAgent]: [Collector] Received user symptoms: Hi
+INFO:     [CollectorAgent]: [Collector] ASI1 responded: [Mock ASI Response] Insight based on your query: Based on the following symptoms: Hi, suggest possible causes and recommend next steps or actions the user should take, such as home remedies, consulting a doctor, or emergency care.
+INFO:     [CollectorAgent]: Shutting down server...

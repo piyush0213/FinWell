@@ -1,0 +1,13 @@
+INFO:     [ASIWrapperAgent]: Starting agent with address: agent1qt69zmtdwud67k7t3nmp353l0y7u8j3q6t9fdy6f4v54258huxre6pnxgwz
+INFO:     [ASIWrapperAgent]: [ASI1] Wrapper Agent is live!
+INFO:     [ASIWrapperAgent]: [ASI1] Agent address: agent1qt69zmtdwud67k7t3nmp353l0y7u8j3q6t9fdy6f4v54258huxre6pnxgwz
+INFO:     [ASIWrapperAgent]: Agent inspector available at https://agentverse.ai/inspect/?uri=http%3A//127.0.0.1%3A8009&address=agent1qt69zmtdwud67k7t3nmp353l0y7u8j3q6t9fdy6f4v54258huxre6pnxgwz
+INFO:     [ASIWrapperAgent]: Starting server on http://0.0.0.0:8009 (Press CTRL+C to quit)
+INFO:     [uagents.registration]: Registration on Almanac API successful
+WARNING:  [uagents.registration]: I do not have enough funds to register on Almanac contract
+WARNING:  [uagents.registration]: To enable contract registration, send funds to wallet address: fetch10uf6q5y3f7993n38n23wuulhddg5z3nuccwnrx
+WARNING:  [uagents.registration]: To register on testnet Almanac contract, create agent with 'Agent(..., network="testnet")'
+INFO:     [ASIWrapperAgent]: [ASI1] Received query from agent1qv35ejh6fx6p5smyqzk9ts2qklhkk7gn5470nt0x3s7an3f7jvfxvlf5222: Based on the following symptoms: Hi, suggest possible causes and recommend next steps or actions the user should take, such as home remedies, consulting a doctor, or emergency care.
+INFO:     [ASIWrapperAgent]: [ASI1] Response generated: [Mock ASI Response] Insight based on your query: Based on the following symptoms: Hi, suggest possible causes and recommend next steps or actions the user should take, such as home remedies, consulting a doctor, or emergency care.
+INFO:     [ASIWrapperAgent]: [ASI1] Response sent back to agent1qv35ejh6fx6p5smyqzk9ts2qklhkk7gn5470nt0x3s7an3f7jvfxvlf5222
+INFO:     [ASIWrapperAgent]: Shutting down server...
